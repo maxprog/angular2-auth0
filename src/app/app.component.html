@@ -1,0 +1,67 @@
+﻿<nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" [routerLink]="['/']">
+               <i class="fa fa-home fa-3x" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav menu-list">
+              
+     
+             <li>
+                    <a [routerLink]="['/todo-list']" *ngIf="auth.authenticated()">
+                      <i class="fa fa-calendar fa-3x" aria-hidden="true"></i>
+                      </a>
+                </li>
+               <li>
+                    <a [routerLink]="['/information']" *ngIf="auth.authenticated()">
+                      <i class="fa fa-address-card-o fa-3x" aria-hidden="true"></i>
+                      </a>
+                </li>
+               
+                             
+            </ul>
+           
+            <div  class="nav navbar-nav navbar-right">
+               <ul class="nav navbar-nav menu-list" >
+             <li><a href="#" (click)="auth.login()" *ngIf="!auth.authenticated()"><h4>Login</h4></a></li>
+         
+            <li><a href="#" (click)="auth.logout()" *ngIf="auth.authenticated()"><h4>Logout</h4></a></li>
+             </ul> 
+               
+        
+             
+            </div>
+        </div>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <router-outlet></router-outlet>
+</div>
+<footer class="navbar-fixed-bottom" style="height:20px!">
+<div class="row text-center">
+    <div class="col-md-12">
+       <h4>
+           <span>Status:</span>
+           <span *ngIf="!auth.authenticated()">Not logged</span>
+            <span *ngIf="auth.authenticated()">Logged as {{ auth.getNickname() }}</span>
+            </h4>
+    </div>
+   
+</div>
+ 
+  
+</footer>
+ 

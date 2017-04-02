@@ -1,0 +1,19 @@
+﻿ <div  class="fill-main center" [@flyInOut]="'in'">
+ 
+   <div class="jumbotron text-center" *ngIf="!auth.authenticated()">
+  
+       <h2>You are not logged to system</h2>
+    <br/>
+   <a href="#" (click)="auth.login()"><h4>Login to system</h4></a>
+ </div>
+ 
+
+
+
+  <div class="jumbotron" *ngIf="auth.authenticated()">
+        <h2>Angular2 </h2>
+        <p>This is a template showcasing integration Angular2 &amp; Auth0 &amp; Total.js</p>
+      </div>
+  
+</div> 
+  

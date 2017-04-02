@@ -1,0 +1,23 @@
+.navbar-fixed-bottom {
+    background-color: #a94442;
+    color: whitesmoke;
+}
+.navbar-brand {
+    padding: 10px 15px;
+   
+}
+
+.margin-1 {
+
+margin: 1px 1px;
+}
+
+.menu-list {
+    list-style-position: inside;
+   
+}
+
+.buttons input{
+    margin-right:5px;
+    margin-bottom:2px;
+}

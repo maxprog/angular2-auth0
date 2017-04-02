@@ -1,0 +1,25 @@
+
+<div class="add-todo-form text-center">
+    <h3>Todo List</h3>
+    <div class="form-group">
+        <input class="form-control input-sm" placeholder="Add Todo..." autofocus #todoText>
+        <br>
+        <button (click)="addTodo($event, todoText)" class="btn btn-primary btn-block">Add</button>    
+    </div>    
+</div>
+
+<div class="todo-list">
+    <div *ngFor="let todo of todos">
+        
+        <div class="col-md-7">
+            <span [class.hidden]="todo.isEditMode">{{todo.text}}</span>
+            <input type="text" [class.hidden]="!todo.isEditMode" [(ngModel)]="todo.text" [value]="todo.text">
+             <input type="button" [class.hidden]="!todo.isEditMode" value="OK" (click)="updateTodoText($event, todo)" class="btn btn-warning">
+            <input type="button" [class.hidden]="!todo.isEditMode" value="Cancel" (click)="setEditState(todo, false)" class="btn btn-warning">
+        </div>  
+        <div class="col-md-5 buttons">
+            <input (click)="deleteTodo(todo)" type="button" class="btn btn-danger pull-right" value="Delete"> 
+            <input (click)="setEditState(todo, true)" type="button" class="btn btn-default pull-right" value="Edit"> 
+        </div>  
+    </div>
+</div>
